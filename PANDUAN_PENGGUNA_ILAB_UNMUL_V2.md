@@ -27,23 +27,23 @@
 ## 📋 Daftar Isi - Klik Sesuai Jabatan Anda
 
 **Pimpinan & Management:**
-- [Super Admin / IT](#1-super-admin--it) - Pengelola sistem
-- [Wakil Direktur Pelayanan](#2-wakil-direktur-pelayanan) - Pengawas layanan
-- [Wakil Direktur PM & TI](#3-wakil-direktur-pm--ti) - Pengawas peralatan & mutu
+- [Super Admin / IT](#1--super-admin--it) - Pengelola sistem
+- [Wakil Direktur Pelayanan](#2--wakil-direktur-pelayanan) - Pengawas layanan
+- [Wakil Direktur PM & TI](#3--wakil-direktur-pm--ti) - Pengawas peralatan & mutu
 
 **Staff Laboratorium:**
-- [Kepala Lab](#4-kepala-lab-unit) - Kepala unit lab
-- [Anggota Lab / Analis](#5-anggota-lab-analis) - Pelaksana analisis
-- [Laboran / Teknisi](#6-laboran-teknisi) - Perawat peralatan
+- [Kepala Lab](#4--kepala-labunit) - Kepala unit lab
+- [Anggota Lab / Analis](#5--anggota-lab-analis) - Pelaksana analisis
+- [Laboran / Teknisi](#6--laboran-teknisi) - Perawat peralatan
 
 **Staff Administrasi:**
-- [Sub Bagian TU & Keuangan](#7-sub-bagian-tu--keuangan) - Administrasi & keuangan
+- [Sub Bagian TU & Keuangan](#7--sub-bagian-tu--keuangan) - Administrasi & keuangan
 
 **Pengguna Layanan:**
-- [Dosen](#8-dosen) - Dosen UNMUL
-- [Mahasiswa](#9-mahasiswa) - Mahasiswa UNMUL
-- [Peneliti Eksternal](#10-peneliti-eksternal) - Peneliti dari luar UNMUL
-- [Industri / Masyarakat Umum](#11-industri--masyarakat-umum) - Pihak swasta/umum
+- [Dosen](#8--dosen) - Dosen UNMUL
+- [Mahasiswa](#9--mahasiswa) - Mahasiswa UNMUL
+- [Peneliti Eksternal](#10--peneliti-eksternal) - Peneliti dari luar UNMUL
+- [Industri / Masyarakat Umum](#11--industri--masyarakat-umum) - Pihak swasta/umum
 
 **Informasi Tambahan:**
 - [Cara Login Pertama Kali](#-cara-login-pertama-kali)
