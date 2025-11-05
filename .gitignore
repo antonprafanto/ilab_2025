@@ -31,6 +31,7 @@ CALENDAR_DEBUG_REPORT.md
 
 # Production Deployment Files (SENSITIVE - DO NOT COMMIT!)
 USER_CREDENTIALS.md
+USER_CREDENTIALS.txt
 check_users.php
 fix_rektor_role.php
 CARA_ADD_USERS_PRODUCTION.md
