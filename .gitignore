@@ -29,6 +29,13 @@ simple_calendar_test.html
 test_calendar.html
 CALENDAR_DEBUG_REPORT.md
 
+# Production Deployment Files (SENSITIVE - DO NOT COMMIT!)
+USER_CREDENTIALS.md
+check_users.php
+fix_rektor_role.php
+CARA_ADD_USERS_PRODUCTION.md
+DEPLOYMENT_SUMMARY.md
+
 # Laravel storage (keep structure, ignore content)
 storage/framework/cache/*
 !storage/framework/cache/.gitignore

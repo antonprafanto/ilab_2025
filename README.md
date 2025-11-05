@@ -10,30 +10,52 @@
 
 ---
 
-## 🚀 Quick Start - Deployment
+## 📚 Dokumentasi
 
-**Mau deploy ke hosting?** Baca dulu:
+**📑 [DOKUMENTASI_INDEX.md](DOKUMENTASI_INDEX.md)** ← **START HERE!** Panduan memilih dokumentasi yang tepat
 
-👉 **[FILES_TO_UPLOAD.md](FILES_TO_UPLOAD.md)** - Daftar file yang harus diupload (SIMPEL!)
+**Panduan Pengguna:**
+- 📖 **[PANDUAN_PENGGUNA_ILAB_UNMUL_V2.md](PANDUAN_PENGGUNA_ILAB_UNMUL_V2.md)** - Panduan lengkap untuk semua role (User-Friendly)
+- 📋 **[QUICK_REFERENCE_FASE3.md](QUICK_REFERENCE_FASE3.md)** - Quick reference card untuk Fase 3
 
-👉 **[_docs/DEPLOYMENT_UNMUL.md](_docs/DEPLOYMENT_UNMUL.md)** - Panduan lengkap deployment ke ilab.unmul.ac.id
+**Dokumentasi Teknis:**
+- 📝 **[DOKUMENTASI_PROYEK.md](DOKUMENTASI_PROYEK.md)** - Dokumentasi teknis untuk developer
+- 🏛️ **[STRUKTUR_ORGANISASI.md](STRUKTUR_ORGANISASI.md)** - Struktur organisasi lengkap berdasarkan SK Rektor
+- 🔄 **[ROLE_MAPPING_SK_TO_SYSTEM.md](ROLE_MAPPING_SK_TO_SYSTEM.md)** - Mapping role SK Rektor ke sistem iLab
 
 ---
 
 ## Tentang iLab UNMUL
 
-iLab UNMUL adalah sistem manajemen laboratorium terpadu yang dikembangkan untuk Universitas Mulawarman, Kalimantan Timur. Platform ini dirancang untuk mengintegrasikan layanan analisis, booking peralatan, dan manajemen penelitian guna mendukung pengembangan ilmu pengetahuan tropis.
+iLab UNMUL adalah sistem manajemen laboratorium terpadu yang dikembangkan untuk **Unit Penunjang Akademik Laboratorium Terpadu (Integrated Laboratory)** Universitas Mulawarman, Kalimantan Timur. Platform ini dirancang untuk mengintegrasikan layanan analisis, booking peralatan, dan manajemen penelitian guna mendukung pengembangan ilmu pengetahuan tropis.
 
-### Fitur Utama
+### 📜 Dasar Hukum
 
-- **Manajemen Laboratorium** - Kelola data laboratorium dengan mudah
-- **Booking Peralatan** - Sistem reservasi peralatan laboratorium
-- **Layanan Analisis** - Manajemen permintaan analisis sampel
-- **User Approval System** - Persetujuan admin untuk registrasi pengguna
-- **Role-Based Access Control** - 4 roles: Super Admin, Peneliti, Mahasiswa, Dosen
-- **SOP Management** - Dokumentasi Standard Operating Procedures
-- **Reporting** - Laporan dan statistik laboratorium
-- **Responsive Design** - Optimized untuk desktop dan mobile
+Platform ini dikembangkan berdasarkan:
+- **Keputusan Rektor Universitas Mulawarman**
+- **Nomor:** 2846/UN17/HK.02.03/2025
+- **Tanggal:** 7 Juli 2025
+- **Tentang:** Struktur Organisasi Pengelola Unit Penunjang Akademik Laboratorium Terpadu (Integrated Laboratory) Universitas Mulawarman
+
+### 🌟 Fitur Fase 3 (Tersedia Saat Ini)
+
+- ✅ **Dashboard & Profile Management** - Dashboard berbasis role
+- ✅ **User & Role Management** - 11 tipe role dengan granular permissions
+- ✅ **Laboratory Management** - Manajemen unit laboratorium
+- ✅ **Service Management** - Katalog layanan analisis
+- ✅ **Equipment Management** - Manajemen peralatan + maintenance + calibration
+- ✅ **Equipment Booking System** - Sistem reservasi peralatan
+- ✅ **Service Request Management** - Wizard 4-step submission & tracking
+- ✅ **SOP Digital Library** - Version control & download PDF
+- ✅ **Sample & Reagent Management** - Tracking sample & inventory
+- ✅ **Responsive Design** - Optimized untuk desktop dan mobile
+
+### 🚧 Coming Soon (Fase 4)
+- ⏳ Test Results Management
+- ⏳ Invoice & Payment System
+- ⏳ Financial Reporting
+- ⏳ Email Notifications
+- ⏳ Advanced Analytics
 
 ---
 
@@ -157,14 +179,53 @@ Visit: http://localhost:8000
 
 ---
 
-## Default Roles
+## Struktur Organisasi
 
-Sistem ini menggunakan 4 roles utama:
+Berdasarkan SK Rektor No. 2846/UN17/HK.02.03/2025, Unit Penunjang Akademik Laboratorium Terpadu memiliki struktur:
 
-1. **Super Admin** - Full akses ke semua fitur sistem
-2. **Peneliti** - Dapat mengajukan booking dan analisis
-3. **Mahasiswa** - Akses terbatas untuk keperluan penelitian
-4. **Dosen** - Dapat membimbing dan approve pengajuan mahasiswa
+### Pimpinan Unit:
+- **Pelindung:** Prof. Dr. Ir. H. Abdunnur, M.Si., IPU (Rektor)
+- **Pengarah:** Prof. Dr. Lambang Subagiyo, M.Si
+- **Penanggung Jawab:** apt. Fajar Prasetya, S.Farm., M.Si., Ph.D
+- **Kepala Unit:** Dr. apt. Angga Cipta Narsa, M.Si.
+
+### Kelompok Kerja (3 Kelompok):
+1. **Bidang Teknis, Inovasi, dan Kerjasama** - Hamdhani, S.P., M.Sc., Ph.D.
+2. **Bidang Pelayanan, Mutu & Penggunaan TI** - Dr. Chairul Saleh, M.Si.
+3. **Bidang Administrasi dan Umum** - Dr. Nurul Puspita Palupi, S.P., M.Si.
+
+### Kelompok Fungsional (8 Kelompok):
+1. **Natural Product** - Sabaniah Indjar Gama, M.Si.
+2. **Advanced Instrument** - Rafitah Hasanah, S.Pi., M.Si., Ph.D.
+3. **Environmental** - Atin Nuryadin, S.Pd., M.Si., Ph.D.
+4. **Agriculture & Animal Husbandry** - Prof. Dr. Ir. Taufan Purwokusumaning Daru, M.P.
+5. **Oceanography & Engineering** - Nanda Khoirunisa, S.Pd., M.Sc.
+6. **Social Innovation** - Etik Sulistiowati Ningsih, S.P., M.Si., Ph.D.
+7. **E-commerce & IT Business** - Hario Jati Setyadi, S.Kom., M.Kom.
+8. **Biotechnology** - Dr. rer. nat. Bodhi Dharma, M.Si.
+
+### User Roles di Sistem iLab (11 Roles):
+
+**Pimpinan & Management:**
+1. **Super Admin** - Full system access
+2. **Wakil Direktur Pelayanan** - Service oversight
+3. **Wakil Direktur PM & TI** - Equipment & IT management
+
+**Staff Laboratorium:**
+4. **Kepala Lab** - Lab management & approval
+5. **Anggota Lab (Analis)** - Analyst/Researcher
+6. **Laboran (Teknisi)** - Lab technician
+
+**Staff Administrasi:**
+7. **Sub Bagian TU & Keuangan** - Finance & admin (Fase 4)
+
+**Pengguna Layanan:**
+8. **Dosen** - Faculty member
+9. **Mahasiswa** - Student
+10. **Peneliti Eksternal** - External researcher
+11. **Industri/Umum** - Industry/Public
+
+Lihat [PANDUAN_PENGGUNA_ILAB_UNMUL_V2.md](PANDUAN_PENGGUNA_ILAB_UNMUL_V2.md) untuk detail akses setiap role.
 
 ---
 
@@ -202,8 +263,6 @@ php artisan tinker
 
 ## Deployment
 
-Untuk deployment ke production, ikuti panduan lengkap di [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md).
-
 ### Quick Deployment Steps
 
 ```bash
@@ -211,31 +270,30 @@ Untuk deployment ke production, ikuti panduan lengkap di [DEPLOYMENT_GUIDE.md](D
 npm run build
 
 # 2. Upload files ke hosting
-# 3. Set document root ke folder /public
-# 4. Install dependencies
+# Set document root ke folder /public
+
+# 3. Install dependencies
 composer install --optimize-autoloader --no-dev
 
-# 5. Configure .env untuk production
-cp .env.production.example .env
+# 4. Configure .env untuk production
+cp .env.example .env
 nano .env
 
-# 6. Generate key
+# 5. Generate key
 php artisan key:generate
 
-# 7. Run migrations
+# 6. Run migrations & seeders
 php artisan migrate --force
-php artisan db:seed --class=RolePermissionSeeder --force
+php artisan db:seed --force
 
-# 8. Optimize
+# 7. Optimize
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-# 9. Set permissions
+# 8. Set permissions
 chmod -R 775 storage bootstrap/cache
 ```
-
-Lihat [PRODUCTION_CHECKLIST.md](PRODUCTION_CHECKLIST.md) untuk checklist lengkap.
 
 ---
 
@@ -397,25 +455,35 @@ Jangan post security issues di public issue tracker.
 
 ## Changelog
 
-### Version 1.0.0 (2024-11-04)
+### Version 0.3.0-beta - Fase 3 (Januari 2025)
 
-**Added:**
-- Initial release
-- User registration dengan admin approval system
-- Landing page dengan dynamic statistics
-- Role-based access control (4 roles)
-- Laboratory, Equipment, Service management
-- Booking system dengan calendar
-- SOP management
-- Responsive design dengan Tailwind CSS v4
-- Loading screen animation
-- Email notifications
+**Status:** Beta Version - Production Ready
+
+**Fitur Fase 3 (Tersedia):**
+- ✅ Dashboard & Profile Management
+- ✅ User & Role Management (11 roles)
+- ✅ Laboratory Management
+- ✅ Service Management & Request (Wizard 4-step)
+- ✅ Equipment Management + Maintenance + Calibration
+- ✅ Equipment Booking System
+- ✅ SOP Digital Library
+- ✅ Sample & Reagent Management
+- ✅ Room Management
+- ✅ Landing page dengan beta bubble notification
+- ✅ Responsive design (mobile-friendly)
+
+**Coming in Fase 4 (Q2 2025):**
+- ⏳ Test Results Management
+- ⏳ Invoice & Payment System
+- ⏳ Financial Reporting
+- ⏳ Email Notifications
+- ⏳ Advanced Analytics
 
 **Security:**
 - CSRF protection
 - XSS protection
 - SQL injection protection
-- Rate limiting
+- Role-based access control (RBAC)
 - File upload validation
 
 ---
@@ -453,10 +521,10 @@ All rights reserved. Unauthorized copying, distribution, or modification of this
 
 **iLab UNMUL - Pusat Unggulan Studi Tropis**
 
-- **Website:** https://unmul.ac.id
-- **Email:** ilab@unmul.ac.id
-- **Address:** Universitas Mulawarman, Samarinda, Kalimantan Timur
-- **Phone:** +62 xxx-xxxx-xxxx
+- **Website:** https://ilab.unmul.ac.id
+- **Email:** antonprafanto@unmul.ac.id
+- **WhatsApp:** 0811553393
+- **Address:** Jl. Kuaro, Gn. Kelua, Samarinda, Kalimantan Timur
 
 ---
 

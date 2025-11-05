@@ -239,7 +239,7 @@
     </nav>
 
     <!-- Beta Floating Bubble -->
-    <div id="beta-bubble" class="fixed bottom-24 right-8 hidden" style="z-index: 9999;">
+    <div id="beta-bubble" class="fixed hidden" style="bottom: 6rem !important; right: 2rem !important; z-index: 9999 !important; position: fixed !important;">
         <!-- Floating Button (Minimized State) -->
         <div id="beta-bubble-btn" class="bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-full shadow-2xl cursor-pointer hover:shadow-orange-500/50 transition-all duration-300 hover:scale-110" onclick="toggleBetaBubble()">
             <div class="flex items-center justify-center w-14 h-14">
@@ -248,24 +248,26 @@
         </div>
 
         <!-- Expanded Bubble Content -->
-        <div id="beta-bubble-content" class="hidden absolute bottom-0 right-0 w-80 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 text-white rounded-2xl shadow-2xl p-5">
+        <div id="beta-bubble-content" class="hidden absolute bottom-0 right-0 w-96 bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 text-white rounded-2xl shadow-2xl p-5">
             <div class="flex items-start justify-between mb-3">
                 <div class="flex items-center space-x-2">
                     <span class="text-2xl">🚀</span>
                     <h3 class="font-bold text-lg">Beta Version</h3>
                 </div>
-                <button onclick="toggleBetaBubble()" class="text-white hover:text-gray-200 transition-colors">
+                <button onclick="toggleBetaBubble()" class="text-white hover:text-gray-200 transition-colors flex-shrink-0">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
-            <p class="text-sm text-white/90 mb-3">
+            <p class="text-sm text-white/90 mb-3 leading-relaxed">
                 Platform dalam Versi Beta - Fitur baru ditambahkan setiap minggu!
             </p>
-            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-xs">
-                <p class="font-semibold mb-1">💡 Info:</p>
-                <p class="text-white/90">Sistem sedang dalam pengembangan aktif. Kami terus menambahkan fitur baru untuk meningkatkan pengalaman Anda.</p>
+            <div class="bg-white/20 backdrop-blur-sm rounded-lg p-3">
+                <p class="font-semibold mb-2 flex items-center text-xs">
+                    <span class="mr-2">💡</span> Info:
+                </p>
+                <p class="text-white/90 text-xs" style="line-height: 1.5;">Sistem sedang dalam pengembangan aktif. Kami terus menambahkan fitur baru untuk meningkatkan pengalaman Anda.</p>
             </div>
         </div>
     </div>

@@ -16,9 +16,8 @@ class DatabaseSeeder extends Seeder
         // 1. Seed permissions & roles first
         $this->call(PermissionSeeder::class);
 
-        // 2. Create users (required by other modules)
-        $this->call(CreateAntonUserSeeder::class);
-        $this->call(SampleUserSeeder::class);
+        // 2. Create users (required by other modules) - 41 users dari SK Rektor
+        $this->call(UserSeeder::class);
 
         // 3. Seed laboratories
         $this->call(LaboratorySeeder::class);

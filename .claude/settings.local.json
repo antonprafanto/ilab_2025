@@ -10,7 +10,13 @@
       "Bash(git init:*)",
       "Bash(git branch:*)",
       "Bash(git remote add:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git remote:*)",
+      "Bash(ssh:*)",
+      "Bash(scp:*)",
+      "Bash(del PANDUAN_PENGGUNA_ILAB_UNMUL.md PANDUAN_PENGGUNA_ILAB_UNMUL_FASE3.md QUICK_REFERENCE_CARD.md FILES_TO_UPLOAD.md PROJECT_STRUCTURE.md)"
     ],
     "deny": [],
     "ask": []
