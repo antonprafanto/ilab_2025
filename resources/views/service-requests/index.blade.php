@@ -124,10 +124,10 @@
                                     {{-- Info Row --}}
                                     <div class="flex items-center gap-5 text-sm mb-3">
                                         <span class="text-gray-800 font-semibold">
-                                            <i class="fas fa-user mr-1.5 text-blue-600"></i>{{ $request->user->name }}
+                                            <i class="fas fa-user mr-1.5 text-blue-600"></i>{{ $request->user?->name ?? '-' }}
                                         </span>
                                         <span class="text-gray-800 font-semibold">
-                                            <i class="fas fa-flask mr-1.5 text-green-600"></i>{{ $request->service->name }}
+                                            <i class="fas fa-flask mr-1.5 text-green-600"></i>{{ $request->service?->name ?? '-' }}
                                         </span>
                                         <span class="text-gray-800 font-semibold">
                                             <i class="fas fa-calendar mr-1.5 text-purple-600"></i>{{ $request->submitted_at->format('d M Y') }}

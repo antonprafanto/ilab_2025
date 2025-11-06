@@ -87,7 +87,7 @@
                                         @endif
                                         <div class="flex items-center gap-4 text-sm">
                                             <span class="text-gray-800 dark:text-gray-200 font-semibold">
-                                                <i class="fas fa-flask mr-1 text-blue-600 dark:text-blue-400"></i>{{ $service->laboratory->name }}
+                                                <i class="fas fa-flask mr-1 text-blue-600 dark:text-blue-400"></i>{{ $service->laboratory?->name ?? '-' }}
                                             </span>
                                             <span class="text-gray-800 dark:text-gray-200 font-semibold">
                                                 <i class="fas fa-clock mr-1 text-green-600 dark:text-green-400"></i>{{ $service->duration_days }} hari

@@ -125,14 +125,14 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="text-sm text-gray-900 dark:text-gray-100">
-                                        {{ $request->user->name }}
+                                        {{ $request->user?->name ?? '-' }}
                                     </div>
                                     <div class="text-sm text-gray-500 dark:text-gray-400">
-                                        {{ $request->user->email }}
+                                        {{ $request->user?->email ?? '-' }}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
-                                    {{ $request->service->name }}
+                                    {{ $request->service?->name ?? '-' }}
                                 </td>
                                 <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
                                     {{ $request->created_at->format('d M Y') }}

@@ -49,7 +49,7 @@
                     </div>
                     <div>
                         <h3 class="font-bold text-gray-900 dark:text-gray-100">{{ $service->name }}</h3>
-                        <p class="text-sm text-gray-700 dark:text-gray-300">{{ $service->laboratory->name }} • {{ $service->duration_days }} hari kerja</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-300">{{ $service->laboratory?->name ?? '-' }} • {{ $service->duration_days }} hari kerja</p>
                     </div>
                 </div>
             </x-card>

@@ -78,11 +78,11 @@
                                     <i class="fas fa-microscope text-white text-2xl"></i>
                                 </div>
                                 <div class="ml-4 flex-1">
-                                    <h4 class="font-semibold text-gray-900">{{ $serviceRequest->service->name }}</h4>
-                                    <p class="text-sm text-gray-600">{{ $serviceRequest->service->service_code }}</p>
+                                    <h4 class="font-semibold text-gray-900">{{ $serviceRequest->service?->name ?? '-' }}</h4>
+                                    <p class="text-sm text-gray-600">{{ $serviceRequest->service?->service_code ?? '-' }}</p>
                                     <div class="mt-2 flex items-center text-sm text-gray-700">
                                         <span class="mr-4">
-                                            <i class="fas fa-building mr-1"></i>{{ $serviceRequest->service->laboratory->name }}
+                                            <i class="fas fa-building mr-1"></i>{{ $serviceRequest->service?->laboratory?->name ?? '-' }}
                                         </span>
                                         <span>
                                             <i class="fas fa-clock mr-1"></i>{{ $serviceRequest->service->duration_days }} hari
@@ -229,7 +229,7 @@
                             Hubungi laboratorium terkait untuk informasi lebih lanjut tentang permohonan Anda.
                         </p>
                         <p class="text-sm font-semibold text-blue-900">
-                            {{ $serviceRequest->service->laboratory->name }}
+                            {{ $serviceRequest->service?->laboratory?->name ?? 'iLab UNMUL' }}
                         </p>
                     </div>
                 </div>
