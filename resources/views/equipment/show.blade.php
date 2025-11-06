@@ -66,7 +66,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                             <div>
                                 <p class="text-sm text-gray-500 dark:text-gray-400">Laboratorium</p>
-                                <p class="text-base font-medium text-gray-900 dark:text-gray-100">{{ $equipment->laboratory->name }}</p>
+                                <p class="text-base font-medium text-gray-900 dark:text-gray-100">{{ $equipment->laboratory?->name ?? '-' }}</p>
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500 dark:text-gray-400">Kategori</p>

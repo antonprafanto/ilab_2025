@@ -66,13 +66,13 @@
 
                                 <div>
                                     <label class="text-sm font-medium text-gray-500 dark:text-gray-400">Laboratorium</label>
-                                    <p class="mt-1 text-gray-900 dark:text-white">{{ $booking->laboratory->name }}</p>
+                                    <p class="mt-1 text-gray-900 dark:text-white">{{ $booking->laboratory?->name ?? '-' }}</p>
                                 </div>
 
                                 @if($booking->equipment)
                                     <div>
                                         <label class="text-sm font-medium text-gray-500 dark:text-gray-400">Alat</label>
-                                        <p class="mt-1 text-gray-900 dark:text-white">{{ $booking->equipment->name }}</p>
+                                        <p class="mt-1 text-gray-900 dark:text-white">{{ $booking->equipment?->name ?? '-' }}</p>
                                     </div>
                                 @endif
 
@@ -83,7 +83,7 @@
 
                                 <div>
                                     <label class="text-sm font-medium text-gray-500 dark:text-gray-400">Dibuat oleh</label>
-                                    <p class="mt-1 text-gray-900 dark:text-white">{{ $booking->user->name }}</p>
+                                    <p class="mt-1 text-gray-900 dark:text-white">{{ $booking->user?->name ?? '-' }}</p>
                                 </div>
                             </div>
 
@@ -173,7 +173,7 @@
                                 <div class="mb-3">
                                     <p class="font-medium text-yellow-700 dark:text-yellow-300">Konflik Laboratorium:</p>
                                     @foreach($conflicts['laboratory'] as $conflict)
-                                        <p class="text-sm text-yellow-600 dark:text-yellow-400">- {{ $conflict->title }} ({{ $conflict->user->name }})</p>
+                                        <p class="text-sm text-yellow-600 dark:text-yellow-400">- {{ $conflict->title }} ({{ $conflict->user?->name ?? 'User tidak diketahui' }})</p>
                                     @endforeach
                                 </div>
                             @endif
@@ -181,7 +181,7 @@
                                 <div>
                                     <p class="font-medium text-yellow-700 dark:text-yellow-300">Konflik Alat:</p>
                                     @foreach($conflicts['equipment'] as $conflict)
-                                        <p class="text-sm text-yellow-600 dark:text-yellow-400">- {{ $conflict->title }} ({{ $conflict->user->name }})</p>
+                                        <p class="text-sm text-yellow-600 dark:text-yellow-400">- {{ $conflict->title }} ({{ $conflict->user?->name ?? 'User tidak diketahui' }})</p>
                                     @endforeach
                                 </div>
                             @endif

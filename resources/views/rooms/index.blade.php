@@ -104,7 +104,7 @@
                                         <div class="text-sm text-gray-500 dark:text-gray-400">{{ $room->name }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                                        {{ $room->laboratory->name }}
+                                        {{ $room->laboratory?->name ?? '-' }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <x-badge variant="secondary" size="sm">{{ $room->type_label }}</x-badge>

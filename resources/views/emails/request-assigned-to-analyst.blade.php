@@ -5,7 +5,7 @@
     <!-- Email untuk Pemohon/User -->
     <h2>✅ Permohonan Layanan Telah Ditugaskan ke Analis</h2>
 
-    <p>Yth. <strong>{{ $serviceRequest->user->name }}</strong>,</p>
+    <p>Yth. <strong>{{ $serviceRequest->user?->name ?? 'Pemohon' }}</strong>,</p>
 
     <p>Kami dengan senang hati menginformasikan bahwa permohonan layanan Anda telah ditugaskan ke analis yang kompeten. Berikut detail penugasannya:</p>
 
@@ -17,19 +17,19 @@
             </tr>
             <tr>
                 <td><strong>Layanan</strong></td>
-                <td>{{ $serviceRequest->service->name }}</td>
+                <td>{{ $serviceRequest->service?->name ?? '-' }}</td>
             </tr>
             <tr>
                 <td><strong>Laboratorium</strong></td>
-                <td>{{ $serviceRequest->assignedLaboratory->name }}</td>
+                <td>{{ $serviceRequest->assignedLaboratory?->name ?? '-' }}</td>
             </tr>
             <tr>
                 <td><strong>Analis yang Ditugaskan</strong></td>
-                <td>{{ $serviceRequest->assignedAnalyst->name }}</td>
+                <td>{{ $serviceRequest->assignedAnalyst?->name ?? '-' }}</td>
             </tr>
             <tr>
                 <td><strong>Email Analis</strong></td>
-                <td>{{ $serviceRequest->assignedAnalyst->email }}</td>
+                <td>{{ $serviceRequest->assignedAnalyst?->email ?? '-' }}</td>
             </tr>
             <tr>
                 <td><strong>Status</strong></td>
@@ -37,7 +37,7 @@
             </tr>
             <tr>
                 <td><strong>Perkiraan Mulai</strong></td>
-                <td>{{ $serviceRequest->assigned_at->format('d/m/Y') }}</td>
+                <td>{{ $serviceRequest->assigned_at ? $serviceRequest->assigned_at->format('d/m/Y') : '-' }}</td>
             </tr>
             @if($serviceRequest->estimated_completion_date)
             <tr>
@@ -63,9 +63,9 @@
 
     <p>Untuk koordinasi teknis terkait sampel dan proses analisis, Anda dapat menghubungi:</p>
     <div class="info-box">
-        <strong>👤 {{ $serviceRequest->assignedAnalyst->name }}</strong><br>
-        📧 Email: <a href="mailto:{{ $serviceRequest->assignedAnalyst->email }}">{{ $serviceRequest->assignedAnalyst->email }}</a><br>
-        🏢 Laboratorium: {{ $serviceRequest->assignedLaboratory->name }}<br>
+        <strong>👤 {{ $serviceRequest->assignedAnalyst?->name ?? 'Analis' }}</strong><br>
+        📧 Email: <a href="mailto:{{ $serviceRequest->assignedAnalyst?->email ?? 'ilab@unmul.ac.id' }}">{{ $serviceRequest->assignedAnalyst?->email ?? 'ilab@unmul.ac.id' }}</a><br>
+        🏢 Laboratorium: {{ $serviceRequest->assignedLaboratory?->name ?? 'iLab UNMUL' }}<br>
         📞 Telepon Laboratorium: +62 541-7491234
     </div>
 
@@ -79,7 +79,7 @@
     <!-- Email untuk Analis -->
     <h2>🔬 Penugasan Permohonan Layanan Baru</h2>
 
-    <p>Yth. <strong>{{ $serviceRequest->assignedAnalyst->name }}</strong>,</p>
+    <p>Yth. <strong>{{ $serviceRequest->assignedAnalyst?->name ?? 'Analis' }}</strong>,</p>
 
     <p>Anda telah ditugaskan untuk menangani permohonan layanan baru. Berikut detail penugasannya:</p>
 
@@ -91,15 +91,15 @@
             </tr>
             <tr>
                 <td><strong>Pemohon</strong></td>
-                <td>{{ $serviceRequest->user->name }}</td>
+                <td>{{ $serviceRequest->user?->name ?? '-' }}</td>
             </tr>
-            @if($serviceRequest->user->institution)
+            @if($serviceRequest->user?->institution)
             <tr>
                 <td><strong>Institusi</strong></td>
                 <td>{{ $serviceRequest->user->institution }}</td>
             </tr>
             @endif
-            @if($serviceRequest->user->phone)
+            @if($serviceRequest->user?->phone)
             <tr>
                 <td><strong>Telepon Pemohon</strong></td>
                 <td>{{ $serviceRequest->user->phone }}</td>
@@ -107,11 +107,11 @@
             @endif
             <tr>
                 <td><strong>Layanan</strong></td>
-                <td>{{ $serviceRequest->service->name }}</td>
+                <td>{{ $serviceRequest->service?->name ?? '-' }}</td>
             </tr>
             <tr>
                 <td><strong>Laboratorium</strong></td>
-                <td>{{ $serviceRequest->assignedLaboratory->name }}</td>
+                <td>{{ $serviceRequest->assignedLaboratory?->name ?? '-' }}</td>
             </tr>
             <tr>
                 <td><strong>Judul Penelitian</strong></td>
@@ -133,7 +133,7 @@
             </tr>
             <tr>
                 <td><strong>Tanggal Penugasan</strong></td>
-                <td>{{ $serviceRequest->assigned_at->format('d/m/Y H:i') }}</td>
+                <td>{{ $serviceRequest->assigned_at ? $serviceRequest->assigned_at->format('d/m/Y H:i') : '-' }}</td>
             </tr>
             @if($serviceRequest->estimated_completion_date)
             <tr>
@@ -174,7 +174,7 @@
         @endphp
         <ul>
             @foreach($equipment as $eq)
-            <li>🔧 <strong>{{ $eq->name }}</strong> - Lokasi: {{ $eq->location ?: 'Laboratorium' }}</li>
+            <li>🔧 <strong>{{ $eq->name }}</strong> - Lokasi: {{ $eq->location_detail ?? $eq->laboratory?->name ?? 'Laboratorium' }}</li>
             @endforeach
         </ul>
     @else
@@ -202,12 +202,12 @@
 
     <p>Untuk koordinasi terkait sampel dan persyaratan teknis:</p>
     <div class="info-box">
-        <strong>👤 {{ $serviceRequest->user->name }}</strong><br>
-        📧 Email: <a href="mailto:{{ $serviceRequest->user->email }}">{{ $serviceRequest->user->email }}</a><br>
-        @if($serviceRequest->user->phone)
+        <strong>👤 {{ $serviceRequest->user?->name ?? 'Pemohon' }}</strong><br>
+        📧 Email: <a href="mailto:{{ $serviceRequest->user?->email ?? 'ilab@unmul.ac.id' }}">{{ $serviceRequest->user?->email ?? 'ilab@unmul.ac.id' }}</a><br>
+        @if($serviceRequest->user?->phone)
         📞 Telepon: {{ $serviceRequest->user->phone }}<br>
         @endif
-        @if($serviceRequest->user->institution)
+        @if($serviceRequest->user?->institution)
         🏢 Institusi: {{ $serviceRequest->user->institution }}
         @endif
     </div>
@@ -228,7 +228,7 @@
 <ul>
     <li>📧 Email: <a href="mailto:ilab@unmul.ac.id">ilab@unmul.ac.id</a></li>
     <li>📞 Telepon: +62 541-7491234</li>
-    <li>🏢 Laboratorium: {{ $serviceRequest->assignedLaboratory->name }}</li>
+    <li>🏢 Laboratorium: {{ $serviceRequest->assignedLaboratory?->name ?? 'iLab UNMUL' }}</li>
 </ul>
 
 <p>Terima kasih atas kerja samanya.</p>

@@ -164,7 +164,7 @@
 
                                 <div class="flex items-center text-sm text-gray-600 dark:text-gray-400">
                                     <i class="fa fa-building mr-2 text-gray-400"></i>
-                                    {{ $item->laboratory->name }}
+                                    {{ $item->laboratory?->name ?? '-' }}
                                 </div>
 
                                 @if($item->brand)

@@ -80,7 +80,7 @@
                     </div>
                     <div class="text-right">
                         <p class="text-sm text-gray-500 dark:text-gray-400">Terdaftar sejak</p>
-                        <p class="text-gray-900 dark:text-gray-100">{{ $user->created_at->format('d M Y') }}</p>
+                        <p class="text-gray-900 dark:text-gray-100">{{ $user->created_at ? $user->created_at->format('d M Y') : '-' }}</p>
                     </div>
                 </div>
             </x-card>
@@ -162,11 +162,11 @@
                 <dl class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div>
                         <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Terdaftar</dt>
-                        <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $user->created_at->format('d M Y H:i') }}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $user->created_at ? $user->created_at->format('d M Y H:i') : '-' }}</dd>
                     </div>
                     <div>
                         <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Terakhir Diperbarui</dt>
-                        <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $user->updated_at->format('d M Y H:i') }}</dd>
+                        <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $user->updated_at ? $user->updated_at->format('d M Y H:i') : '-' }}</dd>
                     </div>
                     <div>
                         <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Status</dt>

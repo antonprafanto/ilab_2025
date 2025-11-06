@@ -48,10 +48,10 @@
                                 {{ $maintenance->maintenance_code }}
                             </h1>
                             <p class="text-lg text-gray-600 dark:text-gray-400 mb-2">
-                                {{ $maintenance->equipment->name }}
+                                {{ $maintenance->equipment?->name ?? '-' }}
                             </p>
                             <p class="text-sm text-gray-500 dark:text-gray-400">
-                                {{ $maintenance->equipment->code }}
+                                {{ $maintenance->equipment?->code ?? '-' }}
                             </p>
                         </div>
                         <div class="flex flex-col gap-2">
@@ -75,7 +75,7 @@
                             <div>
                                 <span class="text-gray-500 dark:text-gray-400">Tanggal Dijadwalkan</span>
                                 <p class="font-medium text-gray-900 dark:text-gray-100">
-                                    {{ $maintenance->scheduled_date->format('d M Y') }}
+                                    {{ $maintenance->scheduled_date ? $maintenance->scheduled_date->format('d M Y') : '-' }}
                                 </p>
                             </div>
                             @if($maintenance->completed_date)

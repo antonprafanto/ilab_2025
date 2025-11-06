@@ -86,7 +86,7 @@
                                     <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
                                         <i class="fa fa-user-tie mr-1"></i> Kepala Laboratorium
                                     </h3>
-                                    <p class="text-gray-600 dark:text-gray-400">{{ $laboratory->headUser->full_name }}</p>
+                                    <p class="text-gray-600 dark:text-gray-400">{{ $laboratory->headUser->full_name ?? $laboratory->headUser->name ?? '-' }}</p>
                                 </div>
                             @endif
 

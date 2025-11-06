@@ -68,7 +68,7 @@
                                 </div>
                                 <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">{{ $serviceRequest->title }}</h3>
                                 <div class="flex items-center gap-5 text-sm text-gray-600 dark:text-gray-400">
-                                    <span><i class="fas fa-calendar mr-1"></i>{{ $serviceRequest->submitted_at->format('d M Y H:i') }}</span>
+                                    <span><i class="fas fa-calendar mr-1"></i>{{ $serviceRequest->submitted_at ? $serviceRequest->submitted_at->format('d M Y H:i') : '-' }}</span>
                                     <span><i class="fas fa-eye mr-1"></i>{{ $serviceRequest->view_count }} views</span>
                                 </div>
                             </div>
@@ -99,14 +99,14 @@
                                     </div>
                                 </div>
                                 <div class="flex-1">
-                                    <h5 class="font-bold text-gray-900 dark:text-gray-100 mb-1">{{ $serviceRequest->service->name }}</h5>
-                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">{{ $serviceRequest->service->code }}</p>
+                                    <h5 class="font-bold text-gray-900 dark:text-gray-100 mb-1">{{ $serviceRequest->service?->name ?? '-' }}</h5>
+                                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-2">{{ $serviceRequest->service?->code ?? '-' }}</p>
                                     <div class="flex items-center gap-4 text-sm">
                                         <span class="text-gray-800 dark:text-gray-200 font-semibold">
-                                            <i class="fas fa-building mr-1 text-blue-600 dark:text-blue-400"></i>{{ $serviceRequest->service->laboratory->name }}
+                                            <i class="fas fa-building mr-1 text-blue-600 dark:text-blue-400"></i>{{ $serviceRequest->service?->laboratory?->name ?? '-' }}
                                         </span>
                                         <span class="text-gray-800 dark:text-gray-200 font-semibold">
-                                            <i class="fas fa-clock mr-1 text-green-600 dark:text-green-400"></i>{{ $serviceRequest->service->duration_days }} hari
+                                            <i class="fas fa-clock mr-1 text-green-600 dark:text-green-400"></i>{{ $serviceRequest->service?->duration_days ?? '-' }} hari
                                         </span>
                                     </div>
                                 </div>
@@ -208,7 +208,7 @@
                                     <div class="flex-1">
                                         <h5 class="font-semibold text-gray-900 dark:text-gray-100">{{ $event['title'] }}</h5>
                                         <p class="text-sm text-gray-600 dark:text-gray-400">{{ $event['description'] }}</p>
-                                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ \Carbon\Carbon::parse($event['date'])->format('d M Y H:i') }}</p>
+                                        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ isset($event['date']) ? \Carbon\Carbon::parse($event['date'])->format('d M Y H:i') : '-' }}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -292,11 +292,11 @@
                         <dl class="space-y-3">
                             <div>
                                 <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">Pemohon</dt>
-                                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 font-semibold">{{ $serviceRequest->user->name }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 font-semibold">{{ $serviceRequest->user?->name ?? '-' }}</dd>
                             </div>
                             <div>
                                 <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">Email Pemohon</dt>
-                                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $serviceRequest->user->email }}</dd>
+                                <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $serviceRequest->user?->email ?? '-' }}</dd>
                             </div>
                             @if($serviceRequest->assignedTo)
                                 <div>
