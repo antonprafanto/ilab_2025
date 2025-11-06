@@ -82,7 +82,7 @@
                                 <div>
                                     <span class="text-gray-500 dark:text-gray-400">Tanggal Selesai</span>
                                     <p class="font-medium text-gray-900 dark:text-gray-100">
-                                        {{ $maintenance->completed_date->format('d M Y') }}
+                                        {{ $maintenance->completed_date ? $maintenance->completed_date->format('d M Y') : '-' }}
                                     </p>
                                 </div>
                             @endif
@@ -170,7 +170,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300">Teknisi</h4>
-                                    <p class="text-sm text-gray-900 dark:text-gray-100">{{ $maintenance->technician->name }}</p>
+                                    <p class="text-sm text-gray-900 dark:text-gray-100">{{ $maintenance->technician?->name ?? '-' }}</p>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                                 </div>
                                 <div>
                                     <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300">Verifikator</h4>
-                                    <p class="text-sm text-gray-900 dark:text-gray-100">{{ $maintenance->verifier->name }}</p>
+                                    <p class="text-sm text-gray-900 dark:text-gray-100">{{ $maintenance->verifier?->name ?? '-' }}</p>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +195,7 @@
                     <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
                         <h4 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Maintenance Berikutnya</h4>
                         <p class="text-sm text-gray-600 dark:text-gray-400">
-                            {{ $maintenance->next_maintenance_date->format('d M Y') }}
+                            {{ $maintenance->next_maintenance_date ? $maintenance->next_maintenance_date->format('d M Y') : '-' }}
                         </p>
                     </div>
                 @endif

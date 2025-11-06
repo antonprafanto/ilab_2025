@@ -82,7 +82,7 @@
                                         <div class="text-sm text-gray-900 dark:text-gray-100">{{ $calibration->type_label }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900 dark:text-gray-100">{{ $calibration->calibration_date->format('d M Y') }}</div>
+                                        <div class="text-sm text-gray-900 dark:text-gray-100">{{ $calibration->calibration_date ? $calibration->calibration_date->format('d M Y') : '-' }}</div>
                                         @if($calibration->is_overdue)
                                             <x-badge variant="danger" size="sm" class="mt-1">Overdue</x-badge>
                                         @elseif($calibration->is_due_soon)

@@ -140,7 +140,7 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900 dark:text-gray-100">
-                                            {{ $maintenance->scheduled_date->format('d M Y') }}
+                                            {{ $maintenance->scheduled_date ? $maintenance->scheduled_date->format('d M Y') : '-' }}
                                         </div>
                                         @if($maintenance->is_overdue)
                                             <x-badge variant="danger" size="sm" class="mt-1">Terlambat</x-badge>

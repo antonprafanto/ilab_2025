@@ -74,7 +74,7 @@
                                                 {{ $user->approver?->name ?? 'System' }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
-                                                {{ $user->approved_at->format('d M Y H:i') }}
+                                                {{ $user->approved_at ? $user->approved_at->format('d M Y H:i') : '-' }}
                                             </td>
                                         </tr>
                                     @endforeach

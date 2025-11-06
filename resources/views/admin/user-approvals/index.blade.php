@@ -91,7 +91,7 @@
 
                                                 <div>
                                                     <span class="text-xs text-gray-500 dark:text-gray-400">Tanggal Daftar:</span>
-                                                    <p class="text-sm text-gray-900 dark:text-white">{{ $user->created_at->format('d M Y H:i') }}</p>
+                                                    <p class="text-sm text-gray-900 dark:text-white">{{ $user->created_at ? $user->created_at->format('d M Y H:i') : '-' }}</p>
                                                 </div>
                                             </div>
                                         </div>

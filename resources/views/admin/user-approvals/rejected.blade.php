@@ -70,7 +70,7 @@
 
                                                 <div>
                                                     <span class="text-xs text-gray-500 dark:text-gray-400">Ditolak pada:</span>
-                                                    <p class="text-sm text-gray-900 dark:text-white">{{ $user->approved_at->format('d M Y H:i') }}</p>
+                                                    <p class="text-sm text-gray-900 dark:text-white">{{ $user->approved_at ? $user->approved_at->format('d M Y H:i') : '-' }}</p>
                                                 </div>
 
                                                 <div>

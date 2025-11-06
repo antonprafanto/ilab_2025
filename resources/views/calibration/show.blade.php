@@ -32,7 +32,7 @@
                 <div class="flex items-start justify-between">
                     <div class="flex-1">
                         <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">{{ $calibration->calibration_code }}</h1>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">{{ $calibration->equipment->name }}</p>
+                        <p class="text-lg text-gray-600 dark:text-gray-400">{{ $calibration->equipment?->name ?? '-' }}</p>
                     </div>
                     <div class="flex flex-col gap-2">
                         <x-badge :variant="$calibration->status_badge" size="lg">{{ $calibration->status_label }}</x-badge>
@@ -49,12 +49,12 @@
                         </div>
                         <div>
                             <span class="text-gray-500 dark:text-gray-400">Tanggal Kalibrasi</span>
-                            <p class="font-medium text-gray-900 dark:text-gray-100">{{ $calibration->calibration_date->format('d M Y') }}</p>
+                            <p class="font-medium text-gray-900 dark:text-gray-100">{{ $calibration->calibration_date ? $calibration->calibration_date->format('d M Y') : '-' }}</p>
                         </div>
                         @if($calibration->due_date)
                             <div>
                                 <span class="text-gray-500 dark:text-gray-400">Jatuh Tempo</span>
-                                <p class="font-medium text-gray-900 dark:text-gray-100">{{ $calibration->due_date->format('d M Y') }}</p>
+                                <p class="font-medium text-gray-900 dark:text-gray-100">{{ $calibration->due_date ? $calibration->due_date->format('d M Y') : '-' }}</p>
                             </div>
                         @endif
                     </div>
