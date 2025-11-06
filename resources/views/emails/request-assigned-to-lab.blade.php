@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td><strong>Pemohon</strong></td>
-            <td>{{ $serviceRequest->user->name }}</td>
+            <td>{{ $serviceRequest->user?->name ?? '-' }}</td>
         </tr>
         @if($serviceRequest->user->institution)
         <tr>
@@ -25,11 +25,11 @@
         @endif
         <tr>
             <td><strong>Layanan</strong></td>
-            <td>{{ $serviceRequest->service->name }}</td>
+            <td>{{ $serviceRequest->service?->name ?? '-' }}</td>
         </tr>
         <tr>
             <td><strong>Laboratorium</strong></td>
-            <td>{{ $serviceRequest->assignedLaboratory->name }}</td>
+            <td>{{ $serviceRequest->assignedLaboratory?->name ?? '-' }}</td>
         </tr>
         <tr>
             <td><strong>Judul Penelitian</strong></td>
@@ -51,12 +51,12 @@
         </tr>
         <tr>
             <td><strong>Tanggal Penugasan</strong></td>
-            <td>{{ $serviceRequest->lab_assigned_at->format('d/m/Y H:i') }}</td>
+            <td>{{ $serviceRequest->lab_assigned_at ? $serviceRequest->lab_assigned_at->format('d/m/Y H:i') : '-' }}</td>
         </tr>
         @if($serviceRequest->estimated_completion_date)
         <tr>
             <td><strong>Target Selesai</strong></td>
-            <td>{{ $serviceRequest->estimated_completion_date->format('d/m/Y') }}</td>
+            <td>{{ $serviceRequest->estimated_completion_date ? $serviceRequest->estimated_completion_date->format('d/m/Y') : '-' }}</td>
         </tr>
         @endif
     </table>
@@ -77,16 +77,19 @@
 
 @php
     // Count current active assignments per analyst
-    $currentAssignments = App\Models\User::role('Anggota Lab/Unit')
-        ->whereHas('laboratories', function($q) use ($serviceRequest) {
-            $q->where('laboratories.id', $serviceRequest->assignedLaboratory->id);
-        })
-        ->withCount(['serviceRequestsAsAnalyst' => function($q) {
-            $q->whereIn('status', ['assigned', 'in_progress', 'testing']);
-        }])
-        ->orderBy('service_requests_as_analyst_count')
-        ->limit(3)
-        ->get();
+    $currentAssignments = collect();
+    if ($serviceRequest->assignedLaboratory?->id) {
+        $currentAssignments = App\Models\User::role('Anggota Lab/Unit')
+            ->whereHas('laboratories', function($q) use ($serviceRequest) {
+                $q->where('laboratories.id', $serviceRequest->assignedLaboratory->id);
+            })
+            ->withCount(['serviceRequestsAsAnalyst' => function($q) {
+                $q->whereIn('status', ['assigned', 'in_progress', 'testing']);
+            }])
+            ->orderBy('service_requests_as_analyst_count')
+            ->limit(3)
+            ->get();
+    }
 @endphp
 
 @if($currentAssignments->count() > 0)

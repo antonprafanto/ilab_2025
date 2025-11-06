@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td><strong>Pemohon</strong></td>
-            <td>{{ $serviceRequest->user->name }}</td>
+            <td>{{ $serviceRequest->user?->name ?? '-' }}</td>
         </tr>
         @if($serviceRequest->user->institution)
         <tr>
@@ -25,11 +25,11 @@
         @endif
         <tr>
             <td><strong>Layanan</strong></td>
-            <td>{{ $serviceRequest->service->name }}</td>
+            <td>{{ $serviceRequest->service?->name ?? '-' }}</td>
         </tr>
         <tr>
             <td><strong>Laboratorium</strong></td>
-            <td>{{ $serviceRequest->service->laboratory->name }}</td>
+            <td>{{ $serviceRequest->service?->laboratory?->name ?? '-' }}</td>
         </tr>
         <tr>
             <td><strong>Judul Penelitian</strong></td>
@@ -51,16 +51,16 @@
         </tr>
         <tr>
             <td><strong>Tanggal Pengajuan</strong></td>
-            <td>{{ $serviceRequest->submitted_at->format('d/m/Y H:i') }}</td>
+            <td>{{ $serviceRequest->submitted_at ? $serviceRequest->submitted_at->format('d/m/Y H:i') : '-' }}</td>
         </tr>
         <tr>
             <td><strong>Tanggal Verifikasi</strong></td>
-            <td>{{ $serviceRequest->verified_at->format('d/m/Y H:i') }}</td>
+            <td>{{ $serviceRequest->verified_at ? $serviceRequest->verified_at->format('d/m/Y H:i') : '-' }}</td>
         </tr>
         @if($serviceRequest->estimated_completion_date)
         <tr>
             <td><strong>Target Selesai</strong></td>
-            <td>{{ $serviceRequest->estimated_completion_date->format('d/m/Y') }}</td>
+            <td>{{ $serviceRequest->estimated_completion_date ? $serviceRequest->estimated_completion_date->format('d/m/Y') : '-' }}</td>
         </tr>
         @endif
     </table>

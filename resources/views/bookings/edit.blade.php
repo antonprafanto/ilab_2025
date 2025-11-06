@@ -143,7 +143,7 @@
                                 <label for="booking_date" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                     Tanggal <span class="text-red-500">*</span>
                                 </label>
-                                <input type="date" name="booking_date" id="booking_date" value="{{ old('booking_date', $booking->booking_date->format('Y-m-d')) }}" required
+                                <input type="date" name="booking_date" id="booking_date" value="{{ old('booking_date', $booking->booking_date?->format('Y-m-d') ?? '') }}" required
                                     class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                 @error('booking_date')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -156,7 +156,7 @@
                                     <label for="start_time" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                         Waktu Mulai <span class="text-red-500">*</span>
                                     </label>
-                                    <input type="time" name="start_time" id="start_time" value="{{ old('start_time', $booking->start_time->format('H:i')) }}" required
+                                    <input type="time" name="start_time" id="start_time" value="{{ old('start_time', $booking->start_time?->format('H:i') ?? '') }}" required
                                         class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                     @error('start_time')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -168,7 +168,7 @@
                                     <label for="end_time" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
                                         Waktu Selesai <span class="text-red-500">*</span>
                                     </label>
-                                    <input type="time" name="end_time" id="end_time" value="{{ old('end_time', $booking->end_time->format('H:i')) }}" required
+                                    <input type="time" name="end_time" id="end_time" value="{{ old('end_time', $booking->end_time?->format('H:i') ?? '') }}" required
                                         class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                     @error('end_time')
                                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -228,7 +228,7 @@
                                 <div class="mt-3 text-sm text-gray-700 dark:text-gray-300">
                                     <p><strong>Pola:</strong> {{ ucfirst($booking->recurrence_pattern) }}</p>
                                     @if($booking->recurrence_end_date)
-                                    <p><strong>Berakhir:</strong> {{ $booking->recurrence_end_date->format('d M Y') }}</p>
+                                    <p><strong>Berakhir:</strong> {{ $booking->recurrence_end_date ? $booking->recurrence_end_date->format('d M Y') : '-' }}</p>
                                     @endif
                                 </div>
                                 @endif

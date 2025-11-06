@@ -3,7 +3,7 @@
 @section('content')
 <h2>✅ Permohonan Layanan Berhasil Dikirim</h2>
 
-<p>Yth. <strong>{{ $serviceRequest->user->name }}</strong>,</p>
+<p>Yth. <strong>{{ $serviceRequest->user?->name ?? 'Pemohon' }}</strong>,</p>
 
 <p>Terima kasih telah mengajukan permohonan layanan ke iLab UNMUL. Permohonan Anda telah kami terima dengan detail sebagai berikut:</p>
 
@@ -15,11 +15,11 @@
         </tr>
         <tr>
             <td><strong>Layanan</strong></td>
-            <td>{{ $serviceRequest->service->name }}</td>
+            <td>{{ $serviceRequest->service?->name ?? '-' }}</td>
         </tr>
         <tr>
             <td><strong>Laboratorium</strong></td>
-            <td>{{ $serviceRequest->service->laboratory->name }}</td>
+            <td>{{ $serviceRequest->service?->laboratory?->name ?? '-' }}</td>
         </tr>
         <tr>
             <td><strong>Jumlah Sampel</strong></td>
@@ -31,12 +31,12 @@
         </tr>
         <tr>
             <td><strong>Tanggal Pengajuan</strong></td>
-            <td>{{ $serviceRequest->submitted_at->format('d/m/Y H:i') }}</td>
+            <td>{{ $serviceRequest->submitted_at ? $serviceRequest->submitted_at->format('d/m/Y H:i') : '-' }}</td>
         </tr>
         @if($serviceRequest->estimated_completion_date)
         <tr>
             <td><strong>Perkiraan Selesai</strong></td>
-            <td>{{ $serviceRequest->estimated_completion_date->format('d/m/Y') }} ({{ $serviceRequest->working_days }} hari kerja)</td>
+            <td>{{ $serviceRequest->estimated_completion_date ? $serviceRequest->estimated_completion_date->format('d/m/Y') : '-' }} ({{ $serviceRequest->working_days }} hari kerja)</td>
         </tr>
         @endif
     </table>

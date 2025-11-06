@@ -95,12 +95,12 @@
                                         <div class="text-sm text-gray-500 dark:text-gray-400">{{ $booking->booking_number }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900 dark:text-white">{{ $booking->user->name }}</div>
+                                        <div class="text-sm text-gray-900 dark:text-white">{{ $booking->user?->name ?? '-' }}</div>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <div class="text-sm text-gray-900 dark:text-white">{{ $booking->laboratory->name }}</div>
+                                        <div class="text-sm text-gray-900 dark:text-white">{{ $booking->laboratory?->name ?? '-' }}</div>
                                         @if($booking->equipment)
-                                            <div class="text-sm text-gray-500 dark:text-gray-400">{{ $booking->equipment->name }}</div>
+                                            <div class="text-sm text-gray-500 dark:text-gray-400">{{ $booking->equipment?->name ?? '-' }}</div>
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">

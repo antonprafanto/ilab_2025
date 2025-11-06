@@ -148,7 +148,7 @@
                             <div class="flex items-center">
                                 <i class="fa fa-clock w-6 text-gray-400"></i>
                                 <span class="text-gray-600 dark:text-gray-400">
-                                    {{ $laboratory->operating_hours_start->format('H:i') }} - {{ $laboratory->operating_hours_end->format('H:i') }}
+                                    {{ $laboratory->operating_hours_start ? $laboratory->operating_hours_start->format('H:i') : '-' }} - {{ $laboratory->operating_hours_end ? $laboratory->operating_hours_end->format('H:i') : '-' }}
                                 </span>
                             </div>
                         @endif

@@ -301,19 +301,19 @@
                             @if($serviceRequest->assignedTo)
                                 <div>
                                     <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">Ditugaskan ke</dt>
-                                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 font-semibold">{{ $serviceRequest->assignedTo->name }}</dd>
+                                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 font-semibold">{{ $serviceRequest->assignedTo?->name ?? '-' }}</dd>
                                 </div>
                             @endif
                             @if($serviceRequest->estimated_completion_date)
                                 <div>
                                     <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">Estimasi Selesai</dt>
-                                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 font-semibold">{{ $serviceRequest->estimated_completion_date->format('d M Y') }}</dd>
+                                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100 font-semibold">{{ $serviceRequest->estimated_completion_date ? $serviceRequest->estimated_completion_date->format('d M Y') : '-' }}</dd>
                                 </div>
                             @endif
                             @if($serviceRequest->preferred_date)
                                 <div>
                                     <dt class="text-xs font-medium text-gray-500 dark:text-gray-400">Tanggal Diharapkan</dt>
-                                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $serviceRequest->preferred_date->format('d M Y') }}</dd>
+                                    <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $serviceRequest->preferred_date ? $serviceRequest->preferred_date->format('d M Y') : '-' }}</dd>
                                 </div>
                             @endif
                         </dl>

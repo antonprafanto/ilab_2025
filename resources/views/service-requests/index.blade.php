@@ -130,11 +130,11 @@
                                             <i class="fas fa-flask mr-1.5 text-green-600"></i>{{ $request->service?->name ?? '-' }}
                                         </span>
                                         <span class="text-gray-800 font-semibold">
-                                            <i class="fas fa-calendar mr-1.5 text-purple-600"></i>{{ $request->submitted_at->format('d M Y') }}
+                                            <i class="fas fa-calendar mr-1.5 text-purple-600"></i>{{ $request->submitted_at ? $request->submitted_at->format('d M Y') : '-' }}
                                         </span>
                                         @if($request->estimated_completion_date)
                                             <span class="text-gray-800 font-semibold">
-                                                <i class="fas fa-clock mr-1.5 text-orange-600"></i>Est: {{ $request->estimated_completion_date->format('d M Y') }}
+                                                <i class="fas fa-clock mr-1.5 text-orange-600"></i>Est: {{ $request->estimated_completion_date ? $request->estimated_completion_date->format('d M Y') : '-' }}
                                             </span>
                                         @endif
                                     </div>
@@ -142,7 +142,7 @@
                                     {{-- Assigned Info --}}
                                     @if($request->assignedTo)
                                         <p class="text-xs text-gray-600 mb-3">
-                                            <i class="fas fa-user-check mr-1"></i>Ditugaskan ke: <span class="font-semibold">{{ $request->assignedTo->name }}</span>
+                                            <i class="fas fa-user-check mr-1"></i>Ditugaskan ke: <span class="font-semibold">{{ $request->assignedTo?->name ?? '-' }}</span>
                                         </p>
                                     @endif
 

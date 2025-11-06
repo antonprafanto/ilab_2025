@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td><strong>Pemohon</strong></td>
-            <td>{{ $serviceRequest->user->name }}</td>
+            <td>{{ $serviceRequest->user?->name ?? '-' }}</td>
         </tr>
         @if($serviceRequest->user->institution)
         <tr>
@@ -25,11 +25,11 @@
         @endif
         <tr>
             <td><strong>Layanan</strong></td>
-            <td>{{ $serviceRequest->service->name }}</td>
+            <td>{{ $serviceRequest->service?->name ?? '-' }}</td>
         </tr>
         <tr>
             <td><strong>Laboratorium Default</strong></td>
-            <td>{{ $serviceRequest->service->laboratory->name }}</td>
+            <td>{{ $serviceRequest->service?->laboratory?->name ?? '-' }}</td>
         </tr>
         <tr>
             <td><strong>Judul Penelitian</strong></td>
@@ -51,12 +51,12 @@
         </tr>
         <tr>
             <td><strong>Tanggal Persetujuan</strong></td>
-            <td>{{ $serviceRequest->approved_at->format('d/m/Y H:i') }}</td>
+            <td>{{ $serviceRequest->approved_at ? $serviceRequest->approved_at->format('d/m/Y H:i') : '-' }}</td>
         </tr>
         @if($serviceRequest->estimated_completion_date)
         <tr>
             <td><strong>Target Selesai</strong></td>
-            <td>{{ $serviceRequest->estimated_completion_date->format('d/m/Y') }}</td>
+            <td>{{ $serviceRequest->estimated_completion_date ? $serviceRequest->estimated_completion_date->format('d/m/Y') : '-' }}</td>
         </tr>
         @endif
     </table>
@@ -77,7 +77,7 @@
 
 <div class="info-box">
     <strong>Laboratorium yang Direkomendasikan:</strong><br>
-    🏷️ <strong>{{ $serviceRequest->service->laboratory->name }}</strong><br>
+    🏷️ <strong>{{ $serviceRequest->service?->laboratory?->name ?? 'iLab UNMUL' }}</strong><br>
     <small>Fasilitas dan expertise yang tersedia sesuai dengan permohonan layanan ini.</small>
 </div>
 

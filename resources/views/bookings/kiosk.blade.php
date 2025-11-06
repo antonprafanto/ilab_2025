@@ -57,18 +57,18 @@
                                                 <div class="flex items-center">
                                                     <div class="flex-shrink-0 h-8 w-8 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center">
                                                         <span class="text-indigo-600 dark:text-indigo-300 text-sm font-medium">
-                                                            {{ substr($booking->user->name, 0, 1) }}
+                                                            {{ substr($booking->user?->name ?? 'U', 0, 1) }}
                                                         </span>
                                                     </div>
                                                     <div class="ml-3">
-                                                        <div class="text-sm font-medium text-gray-900 dark:text-white">{{ $booking->user->name }}</div>
+                                                        <div class="text-sm font-medium text-gray-900 dark:text-white">{{ $booking->user?->name ?? '-' }}</div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="px-6 py-4">
-                                                <div class="text-sm text-gray-900 dark:text-white">{{ $booking->laboratory->name }}</div>
+                                                <div class="text-sm text-gray-900 dark:text-white">{{ $booking->laboratory?->name ?? '-' }}</div>
                                                 @if($booking->equipment)
-                                                    <div class="text-xs text-gray-500 dark:text-gray-400">{{ $booking->equipment->name }}</div>
+                                                    <div class="text-xs text-gray-500 dark:text-gray-400">{{ $booking->equipment?->name ?? '-' }}</div>
                                                 @endif
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
@@ -111,7 +111,7 @@
 
                                                 @if($booking->status === 'checked_in')
                                                     <div class="text-xs text-gray-500 dark:text-gray-400">
-                                                        Check-in: {{ $booking->checked_in_at->format('H:i') }}
+                                                        Check-in: {{ $booking->checked_in_at ? $booking->checked_in_at->format('H:i') : '-' }}
                                                     </div>
                                                 @endif
                                             </td>

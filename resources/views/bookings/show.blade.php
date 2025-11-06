@@ -223,7 +223,7 @@
                                             <p class="text-sm font-medium text-gray-900 dark:text-white">Disetujui</p>
                                             <p class="text-sm text-gray-500 dark:text-gray-400">{{ $booking->approved_at->format('d M Y H:i') }}</p>
                                             @if($booking->approvedBy)
-                                                <p class="text-xs text-gray-400 dark:text-gray-500">oleh {{ $booking->approvedBy->name }}</p>
+                                                <p class="text-xs text-gray-400 dark:text-gray-500">oleh {{ $booking->approvedBy?->name ?? '-' }}</p>
                                             @endif
                                         </div>
                                     </div>
