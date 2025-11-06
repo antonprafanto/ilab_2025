@@ -49,7 +49,7 @@
                     </div>
                     <div class="text-right">
                         <p class="text-sm text-gray-500 dark:text-gray-400">Laboratorium</p>
-                        <p class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ $room->laboratory->name }}</p>
+                        <p class="text-lg font-medium text-gray-900 dark:text-gray-100">{{ $room->laboratory?->name ?? '-' }}</p>
                     </div>
                 </div>
             </x-card>
@@ -73,7 +73,7 @@
                         @if($room->responsiblePerson)
                         <div>
                             <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">Penanggung Jawab</dt>
-                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $room->responsiblePerson->name }}</dd>
+                            <dd class="mt-1 text-sm text-gray-900 dark:text-gray-100">{{ $room->responsiblePerson?->name ?? '-' }}</dd>
                         </div>
                         @endif
                     </dl>
