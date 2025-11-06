@@ -32,13 +32,13 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <div>
-                <x-label for="nip">NIP</x-label>
+                <x-label for="nip_nim">NIP/NIM</x-label>
                 <x-input
-                    id="nip"
-                    name="nip"
-                    value="{{ old('nip', $user?->nip) }}"
+                    id="nip_nim"
+                    name="nip_nim"
+                    value="{{ old('nip_nim', $user?->nip_nim) }}"
                 />
-                @error('nip')
+                @error('nip_nim')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>

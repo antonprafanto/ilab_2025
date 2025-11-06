@@ -55,7 +55,7 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'nip' => 'nullable|string|max:50|unique:users',
+            'nip_nim' => 'nullable|string|max:50|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'phone' => 'nullable|string|max:20',
             'address' => 'nullable|string',
@@ -74,7 +74,7 @@ class UserController extends Controller
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'nip' => $validated['nip'] ?? null,
+            'nip_nim' => $validated['nip_nim'] ?? null,
             'password' => Hash::make($validated['password']),
             'phone' => $validated['phone'] ?? null,
             'address' => $validated['address'] ?? null,
@@ -117,7 +117,7 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'nip' => 'nullable|string|max:50|unique:users,nip,' . $user->id,
+            'nip_nim' => 'nullable|string|max:50|unique:users,nip_nim,' . $user->id,
             'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
             'phone' => 'nullable|string|max:20',
             'address' => 'nullable|string',
@@ -136,7 +136,7 @@ class UserController extends Controller
         $user->update([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'nip' => $validated['nip'] ?? null,
+            'nip_nim' => $validated['nip_nim'] ?? null,
             'phone' => $validated['phone'] ?? null,
             'address' => $validated['address'] ?? null,
         ]);
