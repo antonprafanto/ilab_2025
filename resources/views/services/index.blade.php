@@ -113,7 +113,7 @@
                                     {{-- Info Row --}}
                                     <div class="flex items-center gap-5 text-sm mb-3">
                                         <span class="text-gray-800 font-semibold">
-                                            <i class="fas fa-flask mr-1.5 text-blue-600"></i>{{ $service->laboratory->name }}
+                                            <i class="fas fa-flask mr-1.5 text-blue-600"></i>{{ $service->laboratory?->name ?? '-' }}
                                         </span>
                                         <span class="text-gray-800 font-semibold">
                                             <i class="fas fa-clock mr-1.5 text-green-600"></i>{{ $service->duration_days }} hari
