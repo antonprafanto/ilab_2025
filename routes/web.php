@@ -24,7 +24,10 @@ Route::get('/', function () {
         'users' => \App\Models\User::approved()->count(), // Only approved users
     ];
 
-    return view('welcome', compact('stats'));
+    // Get public documents
+    $publicDocuments = \App\Models\PublicDocument::active()->orderBy('sort_order')->get();
+
+    return view('welcome', compact('stats', 'publicDocuments'));
 });
 
 Route::get('/dashboard', function () {
@@ -48,7 +51,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/user-approvals/{user}/approve', [\App\Http\Controllers\Admin\UserApprovalController::class, 'approve'])->name('user-approvals.approve');
         Route::post('/user-approvals/{user}/reject', [\App\Http\Controllers\Admin\UserApprovalController::class, 'reject'])->name('user-approvals.reject');
         Route::get('/user-approvals/approved', [\App\Http\Controllers\Admin\UserApprovalController::class, 'approved'])->name('user-approvals.approved');
+        Route::get('/user-approvals/approved', [\App\Http\Controllers\Admin\UserApprovalController::class, 'approved'])->name('user-approvals.approved');
         Route::get('/user-approvals/rejected', [\App\Http\Controllers\Admin\UserApprovalController::class, 'rejected'])->name('user-approvals.rejected');
+        
+        // Public Documents Management
+        Route::resource('public-documents', \App\Http\Controllers\Admin\PublicDocumentController::class);
     });
 });
 

@@ -214,6 +214,13 @@
                                 <x-dropdown-link :href="route('admin.user-approvals.rejected')">
                                     Rejected Users
                                 </x-dropdown-link>
+                                <x-dropdown-link :href="route('admin.user-approvals.rejected')">
+                                    Rejected Users
+                                </x-dropdown-link>
+                                <div class="border-t border-gray-100 dark:border-gray-700 my-1"></div>
+                                <x-dropdown-link :href="route('admin.public-documents.index')">
+                                    Dokumen Publik
+                                </x-dropdown-link>
                                 @endif
                             </x-slot>
                         </x-dropdown>
@@ -330,6 +337,11 @@
             <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
                 Users
             </x-responsive-nav-link>
+            @if(auth()->user()->hasRole('Super Admin'))
+            <x-responsive-nav-link :href="route('admin.public-documents.index')" :active="request()->routeIs('admin.public-documents.*')">
+                Dokumen Publik
+            </x-responsive-nav-link>
+            @endif
             @endcan
         </div>
 

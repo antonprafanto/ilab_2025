@@ -538,78 +538,51 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Document 1: SK Tarif -->
+                @forelse($publicDocuments as $doc)
+                <!-- Document Card -->
                 <div class="group relative bg-white rounded-2xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all hover:-translate-y-1 overflow-hidden">
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <svg class="w-24 h-24 text-[#0066CC]" fill="currentColor" viewBox="0 0 24 24">
+                        @if($doc->icon == 'pdf')
+                        <svg class="w-24 h-24 text-{{ $doc->color == 'blue' ? 'blue-600' : ($doc->color == 'green' ? 'green-600' : ($doc->color == 'orange' ? 'orange-500' : ($doc->color == 'red' ? 'red-600' : ($doc->color == 'purple' ? 'purple-600' : 'teal-600')))) }}" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
                         </svg>
+                        @else
+                        <svg class="w-24 h-24 text-{{ $doc->color == 'blue' ? 'blue-600' : ($doc->color == 'green' ? 'green-600' : ($doc->color == 'orange' ? 'orange-500' : ($doc->color == 'red' ? 'red-600' : ($doc->color == 'purple' ? 'purple-600' : 'teal-600')))) }}" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                        </svg>
+                        @endif
                     </div>
                     
                     <div class="relative z-10">
-                        <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#0066CC] transition-colors duration-300">
-                            <svg class="w-8 h-8 text-[#0066CC] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-16 h-16 bg-{{ $doc->color }}-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-{{ $doc->color == 'blue' ? 'blue-600' : ($doc->color == 'green' ? 'green-600' : ($doc->color == 'orange' ? 'orange-500' : ($doc->color == 'red' ? 'red-600' : ($doc->color == 'purple' ? 'purple-600' : 'teal-600')))) }} transition-colors duration-300">
+                            @if($doc->icon == 'pdf')
+                            <svg class="w-8 h-8 text-{{ $doc->color == 'blue' ? 'blue-600' : ($doc->color == 'green' ? 'green-600' : ($doc->color == 'orange' ? 'orange-500' : ($doc->color == 'red' ? 'red-600' : ($doc->color == 'purple' ? 'purple-600' : 'teal-600')))) }} group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                             </svg>
-                        </div>
-                        
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#0066CC] transition-colors">
-                            SK Tarif Layanan Penunjang Akademik
-                        </h3>
-                        
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Surat Keputusan Rektor mengenai tarif layanan penunjang akademik di lingkungan Universitas Mulawarman.
-                        </p>
-                        
-                        <div class="flex gap-3">
-                            <a href="/files/sk_tarif_layanan.pdf" target="_blank" class="flex-1 inline-flex justify-center items-center px-4 py-2 bg-[#0066CC] text-white rounded-lg hover:bg-[#0055aa] transition-colors font-medium text-sm">
-                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-                                </svg>
-                                Lihat PDF
-                            </a>
-                            <a href="/files/sk_tarif_layanan.pdf" download class="inline-flex justify-center items-center px-4 py-2 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors bg-white font-medium text-sm">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Document 2: SK Rektor 999 -->
-                <div class="group relative bg-white rounded-2xl shadow-lg border border-gray-100 p-8 hover:shadow-xl transition-all hover:-translate-y-1 overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <svg class="w-24 h-24 text-[#4CAF50]" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                        </svg>
-                    </div>
-                    
-                    <div class="relative z-10">
-                        <div class="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#4CAF50] transition-colors duration-300">
-                            <svg class="w-8 h-8 text-[#4CAF50] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            @else
+                            <svg class="w-8 h-8 text-{{ $doc->color == 'blue' ? 'blue-600' : ($doc->color == 'green' ? 'green-600' : ($doc->color == 'orange' ? 'orange-500' : ($doc->color == 'red' ? 'red-600' : ($doc->color == 'purple' ? 'purple-600' : 'teal-600')))) }} group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
+                            @endif
                         </div>
                         
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#4CAF50] transition-colors">
-                            SK Rektor No. 999/UN17/HK/2025
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-{{ $doc->color == 'blue' ? 'blue-600' : ($doc->color == 'green' ? 'green-600' : ($doc->color == 'orange' ? 'orange-500' : ($doc->color == 'red' ? 'red-600' : ($doc->color == 'purple' ? 'purple-600' : 'teal-600')))) }} transition-colors">
+                            {{ $doc->title }}
                         </h3>
                         
                         <p class="text-gray-600 mb-6 leading-relaxed">
-                            Peraturan Rektor Universitas Mulawarman Nomor 999 Tahun 2025 tentang Penyelenggaraan Layanan.
+                            {{ $doc->description }}
                         </p>
                         
                         <div class="flex gap-3">
-                            <a href="/files/sk_rektor_un17.pdf" target="_blank" class="flex-1 inline-flex justify-center items-center px-4 py-2 bg-[#4CAF50] text-white rounded-lg hover:bg-[#388E3C] transition-colors font-medium text-sm">
+                            <a href="{{ $doc->download_url }}" target="_blank" class="flex-1 inline-flex justify-center items-center px-4 py-2 bg-{{ $doc->color == 'blue' ? 'blue-600' : ($doc->color == 'green' ? 'green-600' : ($doc->color == 'orange' ? 'orange-500' : ($doc->color == 'red' ? 'red-600' : ($doc->color == 'purple' ? 'purple-600' : 'teal-600')))) }} text-white rounded-lg hover:opacity-90 transition-colors font-medium text-sm">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                 </svg>
                                 Lihat PDF
                             </a>
-                            <a href="/files/sk_rektor_un17.pdf" download class="inline-flex justify-center items-center px-4 py-2 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors bg-white font-medium text-sm">
+                            <a href="{{ $doc->download_url }}" download class="inline-flex justify-center items-center px-4 py-2 border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors bg-white font-medium text-sm">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                                 </svg>
@@ -617,6 +590,14 @@
                         </div>
                     </div>
                 </div>
+                @empty
+                <div class="col-span-2 text-center py-12 bg-gray-50 rounded-2xl border border-dashed border-gray-300">
+                    <svg class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <p class="text-gray-500 text-lg">Belum ada dokumen publik yang tersedia.</p>
+                </div>
+                @endforelse
             </div>
         </div>
     </section>
