@@ -87,9 +87,9 @@
 
                         <div class="flex items-center justify-end mt-4">
                             <a href="{{ route('admin.public-documents.index') }}" class="text-gray-600 hover:text-gray-900 mr-4">{{ __('Batal') }}</a>
-                            <x-primary-button class="ml-4">
+                            <button type="submit" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-500 focus:bg-blue-500 active:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-4">
                                 {{ __('Simpan Perubahan') }}
-                            </x-primary-button>
+                            </button>
                         </div>
                     </form>
                 </div>
