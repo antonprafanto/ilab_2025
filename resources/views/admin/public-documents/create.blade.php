@@ -14,21 +14,21 @@
 
                         <!-- Title -->
                         <div class="mb-4">
-                            <x-input-label for="title" :value="__('Judul Dokumen')" />
-                            <x-text-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus />
+                            <label for="title" class="block font-medium text-sm text-gray-700">{{ __('Judul Dokumen') }}</label>
+                            <input id="title" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="text" name="title" value="{{ old('title') }}" required autofocus />
                             <x-input-error :messages="$errors->get('title')" class="mt-2" />
                         </div>
 
                         <!-- Description -->
                         <div class="mb-4">
-                            <x-input-label for="description" :value="__('Deskripsi (Opsional)')" />
+                            <label for="description" class="block font-medium text-sm text-gray-700">{{ __('Deskripsi (Opsional)') }}</label>
                             <textarea id="description" name="description" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="3">{{ old('description') }}</textarea>
                             <x-input-error :messages="$errors->get('description')" class="mt-2" />
                         </div>
 
                         <!-- File -->
                         <div class="mb-4">
-                            <x-input-label for="file" :value="__('File Dokumen (PDF, DOCX, XLS, PPT | Max: 200MB)')" />
+                            <label for="file" class="block font-medium text-sm text-gray-700">{{ __('File Dokumen (PDF, DOCX, XLS, PPT | Max: 200MB)') }}</label>
                             <input id="file" class="block mt-1 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none" type="file" name="file" required>
                             <p class="mt-1 text-sm text-gray-500" id="file_size_info">Maksimum ukuran file: 200MB. Pastikan konfigurasi server (php.ini) mendukung upload file besar.</p>
                             <x-input-error :messages="$errors->get('file')" class="mt-2" />
@@ -37,7 +37,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Color Theme -->
                             <div class="mb-4">
-                                <x-input-label for="color" :value="__('Tema Warna')" />
+                                <label for="color" class="block font-medium text-sm text-gray-700">{{ __('Tema Warna') }}</label>
                                 <select id="color" name="color" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
                                     <option value="blue" {{ old('color') == 'blue' ? 'selected' : '' }}>Biru (Default)</option>
                                     <option value="green" {{ old('color') == 'green' ? 'selected' : '' }}>Hijau</option>
@@ -51,7 +51,7 @@
 
                             <!-- Icon -->
                             <div class="mb-4">
-                                <x-input-label for="icon" :value="__('Ikon')" />
+                                <label for="icon" class="block font-medium text-sm text-gray-700">{{ __('Ikon') }}</label>
                                 <select id="icon" name="icon" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
                                     <option value="document" {{ old('icon') == 'document' ? 'selected' : '' }}>Dokumen Umum</option>
                                     <option value="pdf" {{ old('icon') == 'pdf' ? 'selected' : '' }}>PDF</option>
@@ -63,8 +63,8 @@
                         
                         <!-- Sort Order -->
                         <div class="mb-4">
-                             <x-input-label for="sort_order" :value="__('Urutan Tampil')" />
-                             <x-text-input id="sort_order" class="block mt-1 w-24" type="number" name="sort_order" :value="old('sort_order', 0)" />
+                             <label for="sort_order" class="block font-medium text-sm text-gray-700">{{ __('Urutan Tampil') }}</label>
+                             <input id="sort_order" class="block mt-1 w-24 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="number" name="sort_order" value="{{ old('sort_order', 0) }}" />
                              <p class="text-xs text-gray-500 mt-1">Semakin kecil angka, semakin di atas.</p>
                         </div>
 
