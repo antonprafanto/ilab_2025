@@ -38,12 +38,12 @@ class PublicDocumentController extends Controller
             'icon' => 'required|string',
         ]);
 
-        $path = $request->file('file')->store('public/documents');
+        $path = $request->file('file')->store('documents', 'public');
 
         PublicDocument::create([
             'title' => $request->title,
             'description' => $request->description,
-            'file_path' => $path, // Storage path
+            'file_path' => $path,
             'color' => $request->color,
             'icon' => $request->icon,
             'is_active' => $request->has('is_active'),
@@ -85,11 +85,11 @@ class PublicDocumentController extends Controller
 
         if ($request->hasFile('file')) {
             // Delete old file
-            if ($publicDocument->file_path && Storage::exists($publicDocument->file_path)) {
-                Storage::delete($publicDocument->file_path);
+            if ($publicDocument->file_path && Storage::disk('public')->exists($publicDocument->file_path)) {
+                Storage::disk('public')->delete($publicDocument->file_path);
             }
             // Store new file
-            $data['file_path'] = $request->file('file')->store('public/documents');
+            $data['file_path'] = $request->file('file')->store('documents', 'public');
         }
 
         $publicDocument->update($data);
@@ -104,8 +104,8 @@ class PublicDocumentController extends Controller
     public function destroy(PublicDocument $publicDocument)
     {
         // Delete file
-        if ($publicDocument->file_path && Storage::exists($publicDocument->file_path)) {
-            Storage::delete($publicDocument->file_path);
+        if ($publicDocument->file_path && Storage::disk('public')->exists($publicDocument->file_path)) {
+            Storage::disk('public')->delete($publicDocument->file_path);
         }
 
         $publicDocument->delete();

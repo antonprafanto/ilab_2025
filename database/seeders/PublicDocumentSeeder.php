@@ -52,7 +52,7 @@ class PublicDocumentSeeder extends Seeder
                 PublicDocument::create([
                     'title' => $file['title'],
                     'description' => $file['description'],
-                    'file_path' => 'public/documents/' . $file['filename'],
+                    'file_path' => 'documents/' . $file['filename'],
                     'color' => $file['color'],
                     'icon' => $file['icon'],
                     'is_active' => true,
